@@ -1,4 +1,4 @@
-name: ScikitRibo_env
+name: scikit-ribo-ext
 channels:
   - conda-forge
   - bioconda
