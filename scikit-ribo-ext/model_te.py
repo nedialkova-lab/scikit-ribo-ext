@@ -182,6 +182,7 @@ class ModelTE(object):
                                    for i in range(numGenes+1, numGenes + numCodons + 1)], columns=["codon", "beta"])
         codonBetas["log_codon_dwell_time"] = (codonBetas["beta"] - np.median(codonBetas["beta"]))
         codonBetas["codon_dwell_time"] = np.exp(codonBetas["log_codon_dwell_time"])
+        codonBetas["no_norm_codon_dwell_time"] = np.exp(codonBetas["beta"])
         codonBetas.drop(["beta", "log_codon_dwell_time"], inplace=True, axis=1)
         ## Modified to remove the RNAfold dependencies
         #downstreamSLBeta = coefs[numGenes + numCodons + 1][0]
