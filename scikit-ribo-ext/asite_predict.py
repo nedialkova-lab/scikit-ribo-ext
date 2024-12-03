@@ -220,7 +220,7 @@ class PredictAsite(object):
             sys.stderr.write("[options]\tRecovering {} sites for dwell time calculation".format(self.site) + "\n")
             self.cds.loc[self.cds['gene_strand'] == '+', "a_start"] = self.cds['start'] + self.cds['asite'] - shift
             self.cds.loc[self.cds['gene_strand'] == '+', "a_end"  ] = self.cds['a_start'] + 3
-            self.cds.loc[self.cds['gene_strand'] == '-', "a_end"] = self.cds['end'] - self.cds['asite'] - shift
+            self.cds.loc[self.cds['gene_strand'] == '-', "a_end"] = self.cds['end'] - self.cds['asite'] + shift
             self.cds.loc[self.cds['gene_strand'] == '-', "a_start"] = self.cds['a_end'] - 3
             #self.cds['a_start'] = np.where(self.cds['gene_strand'] == '+', (self.cds['start'] + self.cds['asite']),
             #                               (-1)).astype(int)
@@ -233,7 +233,7 @@ class PredictAsite(object):
             sys.stderr.write("[options]\tRecovering {} sites for dwell time calculation".format(self.site) + "\n")
             self.cds.loc[self.cds['gene_strand'] == '+', "a_start"] = self.cds['end'] - self.cds['asite'] - shift
             self.cds.loc[self.cds['gene_strand'] == '+', "a_end"] = self.cds['a_start'] + 3
-            self.cds.loc[self.cds['gene_strand'] == '-', "a_end"] = self.cds['start'] + self.cds['asite'] - shift
+            self.cds.loc[self.cds['gene_strand'] == '-', "a_end"] = self.cds['start'] + self.cds['asite'] + shift
             self.cds.loc[self.cds['gene_strand'] == '-', "a_start"] = self.cds['a_end'] - 3
             #self.cds['a_start'] = np.where(self.cds['gene_strand'] == '+', (self.cds['end'] - self.cds['asite']),
             #                               (-1)).astype(int)
